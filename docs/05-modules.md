@@ -251,8 +251,8 @@ Nothing functional — only used by `README.md` and the web UI.
 
 | File | Purpose |
 |------|---------|
-| `Dockerfile.cpu` | CPU‑only container based on `pytorch/pytorch:*-cuda11.8`. Installs Graphviz, TeX Live / TinyTeX, and `requirements_cpu.txt`. |
-| `Dockerfile.gpu` | Adds CUDA 12.1, cuDF / cuML / cuGraph, and compiles `externals/pc_adjacency_search`. |
+| `Dockerfile.cpu` | CPU‑oriented container. Uses the `pytorch/pytorch:2.2.2-cuda11.8-cudnn8-runtime` base image (the same family of images is used for both variants for consistency), installs only the CPU Python deps (`requirements_cpu.txt`) plus Graphviz and TeX Live / TinyTeX. |
+| `Dockerfile.gpu` | Full GPU image based on `pytorch/pytorch:2.2.0-cuda12.1-cudnn8-devel`. Adds GPU Python deps (cuDF / cuML / cuGraph, etc.) and compiles `externals/pc_adjacency_search`. |
 | `setup_cpu.sh` | Bash installer for a Conda environment (Linux/macOS). |
 | `setup_gpu.sh` | Same plus CUDA toolkit detection and GPU packages. |
 | `install_latex.py` | Installs TinyTeX and the LaTeX packages listed in `requirements_latex.txt`. |
